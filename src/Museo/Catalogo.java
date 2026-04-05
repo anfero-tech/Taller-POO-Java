@@ -12,11 +12,20 @@ public class Catalogo {
 
     public void registrarObra(Obra o) {
         this.listaObras.add(o);
-        System.out.println("[Museo] Registrada: " + o.toString());
     }
 
-    public void mostrarInventario() {
-        System.out.println("\n--- CATALOGO: " + nombreMuseo.toUpperCase() + " ---");
+    // EL PLUS: Buscar obras por autor (Lógica de filtrado)
+    public void buscarPorAutor(String autorBusqueda) {
+        System.out.println("\nResultados para: " + autorBusqueda);
+        for (Obra o : listaObras) {
+            if (o.getAutor().equalsIgnoreCase(autorBusqueda)) {
+                System.out.println("-> " + o.getTitulo());
+            }
+        }
+    }
+
+    public void mostrarCatalogoCompleto() {
+        System.out.println("\n======= " + nombreMuseo.toUpperCase() + " =======");
         for (Obra o : listaObras) {
             System.out.println(o.toString());
         }
